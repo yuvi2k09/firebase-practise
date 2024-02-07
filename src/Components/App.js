@@ -3,7 +3,15 @@ import fbIcon from "../Assets/fbIcon.png";
 import microsoftIcon from "../Assets/microsoftLogo.png";
 import googlePlayIcon from "../Assets/googlePlayIcon.png";
 import "../Components/App.css";
+import { useState } from "react";
 function App() {
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  //Functions
+  function handleSubmit() {
+    console.log("Username:", userName);
+    console.log("Password:", password);
+  }
   return (
     <>
       <div
@@ -36,6 +44,9 @@ function App() {
                 borderRadius: "5px",
                 border: "1px solid #ccc",
               }}
+              onChange={(e) => {
+                setUserName(e.target.value);
+              }}
             />
           </div>
           <div style={{ marginBottom: "10px", width: "70%" }}>
@@ -48,22 +59,31 @@ function App() {
                 borderRadius: "5px",
                 border: "1px solid #ccc",
               }}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
             />
           </div>
           <div style={{ marginBottom: "10px", width: "74%" }}>
-            <button
-              style={{
-                borderRadius: "10px",
-                width: "100%",
-                backgroundColor: "#4CB5F9",
-                color: "white",
-                borderColor: "white",
-                marginLeft: "7px",
-                fontSize: "18px",
-              }}
-            >
-              Log in
-            </button>
+            <a href="https://www.google.com/">
+              <button
+                style={{
+                  borderRadius: "10px",
+                  width: "100%",
+                  backgroundColor: "#4CB5F9",
+                  color: "white",
+                  borderColor: "white",
+                  marginLeft: "7px",
+                  fontSize: "18px",
+                }}
+                href="www.google.com"
+                onClick={() => {
+                  handleSubmit();
+                }}
+              >
+                Log in
+              </button>
+            </a>
           </div>
           <div
             style={{ display: "flex", flexDirection: "row", margin: "10px 0" }}
@@ -143,51 +163,60 @@ function App() {
             alignItems: "center",
           }}
         >
-          <button
-            style={{
-              backgroundColor: "black",
-              padding: "7px",
-              color: "white",
-              borderRadius: "5px",
-              marginRight: "10px",
-              display: "flex",
-              alignItems: "center",
-              height: "50px",
-            }}
+          <a
             href="https://play.google.com/store/apps/details?id=com.instagram.android&referrer=ig_mid%3D079821F4-B1C5-4D37-8B35-175A10BB5E17%26utm_campaign%3DloginPage%26utm_content%3Dlo%26utm_source%3Dinstagramweb%26utm_medium%3Dbadge%26original_referrer%3Dhttps://www.google.com/&pli=1"
+            style={{ textDecoration: "none" }}
           >
-            <img
-              src={googlePlayIcon}
-              alt="googlePLayIcon"
-              style={{ height: "25px", paddingRight: "10px" }}
-            />
-            <p style={{ textAlign: "left", fontSize: "10px" }}>
-              GET IT ON <br />
-              <h2 style={{ padding: "0", margin: "0" }}>Google Play</h2>
-            </p>
-          </button>
-          <button
-            style={{
-              backgroundColor: "black",
-              padding: "7px",
-              color: "white",
-              borderRadius: "5px",
-              marginRight: "10px",
-              display: "flex",
-              alignItems: "center",
-              height: "50px",
-            }}
+            <button
+              style={{
+                backgroundColor: "black",
+                padding: "7px",
+                color: "white",
+                borderRadius: "5px",
+                marginRight: "10px",
+                display: "flex",
+                alignItems: "center",
+                height: "50px",
+              }}
+            >
+              <img
+                src={googlePlayIcon}
+                alt="googlePLayIcon"
+                style={{ height: "25px", paddingRight: "10px" }}
+              />
+              <p style={{ textAlign: "left", fontSize: "10px" }}>
+                GET IT ON <br />
+                <h2 style={{ padding: "0", margin: "0" }}>Google Play</h2>
+              </p>
+            </button>
+          </a>
+          <a
+            href="ms-windows-store://pdp/?productid=9nblggh5l9xt&referrer=appbadge&source=www.instagram.com&mode=mini&pos=0%2C0%2C1920%2C1008&hl=en"
+            style={{ textDecoration: "none" }}
           >
-            <img
-              src={microsoftIcon}
-              alt="microsoftIcon"
-              style={{ height: "25px", paddingRight: "10px" }}
-            />
-            <p style={{ textAlign: "left", fontSize: "10px" }}>
-              GET IT FROm <br />
-              <h2 style={{ padding: "0", margin: "0" }}>Microsoft</h2>
-            </p>
-          </button>
+            <button
+              style={{
+                backgroundColor: "black",
+                padding: "7px",
+                color: "white",
+                borderRadius: "5px",
+                marginRight: "10px",
+                display: "flex",
+                alignItems: "center",
+                height: "50px",
+              }}
+            >
+              <img
+                src={microsoftIcon}
+                alt="microsoftIcon"
+                style={{ height: "25px", paddingRight: "10px" }}
+              />
+              <p style={{ textAlign: "left", fontSize: "10px" }}>
+                GET IT FROM <br />
+                <h2 style={{ padding: "0", margin: "0" }}>Microsoft</h2>
+              </p>
+            </button>
+          </a>
         </div>
       </div>
     </>
