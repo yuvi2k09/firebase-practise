@@ -36,7 +36,7 @@ function App() {
         <div
           style={{
             display: "flex",
-            width: "55%",
+            width: "80%",
             flexDirection: "column",
             alignItems: "center",
             border: "1px solid rgb(219, 219, 219)",
@@ -96,7 +96,7 @@ function App() {
           <div
             style={{ display: "flex", flexDirection: "row", margin: "10px 0" }}
           >
-            &nbsp;&nbsp;OR&nbsp;&nbsp;
+            OR&nbsp;
           </div>
           <div
             style={{
@@ -109,7 +109,7 @@ function App() {
             }}
           >
             <a
-              href="www.google.com"
+              href="https://www.facebook.com/"
               style={{
                 borderRadius: "5px",
                 width: "100%",
@@ -125,11 +125,16 @@ function App() {
                 color: "#385185",
               }}
             >
-              <img src={fbIcon} height="20px" alt="facebookIcon" />
-              &nbsp;Log in with Facebook
+              <img
+                src={fbIcon}
+                height="20px"
+                alt="facebookIcon"
+                style={{ paddingRight: "1.5px" }}
+              />
+              Log in with Facebook
             </a>
             <a
-              href="www.google.com"
+              href="https://www.instagram.com/accounts/password/reset/"
               style={{
                 textDecoration: "none",
                 color: "#00376B",
@@ -142,7 +147,7 @@ function App() {
         </div>
         <div
           style={{
-            width: "55%",
+            width: "80%",
             display: "flex",
             justifyContent: "center",
             marginTop: "15px",
