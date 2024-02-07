@@ -84,6 +84,7 @@ function App() {
                 borderColor: "white",
                 marginLeft: "7px",
                 fontSize: "18px",
+                border: "none",
               }}
               href="www.google.com"
               onClick={() => {
